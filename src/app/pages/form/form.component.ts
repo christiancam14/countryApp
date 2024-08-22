@@ -10,17 +10,24 @@ import { CountryService } from 'src/app/services/country.service';
 export class FormComponent {
   country: string = '';
   countryInfo: Country | null = null;
+  error: boolean = false;
 
   constructor(private countryService: CountryService) {}
 
   handleSubmit() {
+    if (this.country.length === 0) {
+      alert('Por favor ingrese el nombre de un país');
+      return;
+    }
+
     this.countryService.getCountryInfo(this.country).subscribe(
-      (data) => {
-        this.countryInfo = data; // Asignar directamente el objeto Country
-        console.log(data);
+      (countryResp) => {
+        this.error = false;
+        this.countryInfo = countryResp;
       },
       (error) => {
         this.countryInfo = null;
+        this.error = true;
       }
     );
   }

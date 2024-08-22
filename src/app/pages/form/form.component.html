@@ -1,21 +1,57 @@
 <section class="principal">
   <div class="cont-1200">
     <div style="text-align: center">
-      <h2>Country Information</h2>
-      <input [(ngModel)]="country" placeholder="Enter country name" />
-      <button (click)="handleSubmit()">Search</button>
+      <h2 class="title-body fs-3 mb-3">Consulta tu país</h2>
+      <div class="search-container">
+        <input
+          [(ngModel)]="country"
+          placeholder="Ingresa el nombre del país"
+          (keydown.enter)="handleSubmit()"
+          class="form-control"
+        />
+        <button class="btn btn-primary" (click)="handleSubmit()">Buscar</button>
+      </div>
 
-      <div *ngIf="countryInfo">
-        <h2>{{ countryInfo.name.common }} ({{ countryInfo.name.official }})</h2>
-        <p>
-          <strong>Currency:</strong> {{countryInfo.currencies}}
-        </p>
-        <p><strong>Region:</strong> {{ countryInfo.region }}</p>
-        <p><strong>Capital:</strong> {{ countryInfo.capital[0] }}</p>
-        <p><strong>Area:</strong> {{ countryInfo.area | number }} km²</p>
-        <a [href]="countryInfo.maps" target="_blank"
-          >View on Google Maps</a
-        >
+      <div *ngIf="countryInfo" class="my-4">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Propiedad</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Moneda</td>
+              <td>{{ countryInfo.currencies }}</td>
+            </tr>
+            <tr>
+              <td>Región</td>
+              <td>{{ countryInfo.region }}</td>
+            </tr>
+            <tr>
+              <td>Capital</td>
+              <td>{{ countryInfo.capital[0] }}</td>
+            </tr>
+            <tr>
+              <td>Area</td>
+              <td>{{ countryInfo.area | number }} km²</td>
+            </tr>
+            <tr>
+              <td>Ubicación</td>
+              <td>
+                <a [href]="countryInfo.maps" target="_blank"
+                  >Ver en Google Maps</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div *ngIf="error" class="mt-4">
+        <p class="fs-5 mb-0">No se encontró el país</p>
+        <p class="fs-6">Intenta con otro país.</p>
       </div>
     </div>
   </div>

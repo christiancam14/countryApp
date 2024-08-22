@@ -1,12 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+/* Variables */
 :root {
   --primary-color: #872075;
+  --primary-color-over: #420538;
   --secondary-color: #f7f4fb;
   --text-color-dark: #36333c;
   --text-color-ligth: #ffffff;
   --background-color: #ecf0f1;
   --background-color-dark: #e5e5e5;
 }
+
+/* General styles */
 
 * {
   box-sizing: border-box;
@@ -15,6 +18,13 @@
   font-family: "Open Sans", sans-serif, "Helvetica Neue";
 }
 
+.cont-1200 {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header styles */
 header {
   align-items: center;
   background-color: #872075;
@@ -26,20 +36,44 @@ header {
   text-align: center;
 }
 
-header .title {
-  font-size: 26px;
-  transition: transform 0.25s ease-in-out;
-}
-
+/* Body styles */
 section.principal {
   background-color: var(--background-color);
   padding: 20px;
   min-height: calc(100vh - 130px);
 }
 
-header .title:hover {
-  transform: scale(1.05);
+.title-body {
+  color: var(--text-color-dark);
 }
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.search-container input {
+  width: 280px;
+}
+
+.search-container input:focus {
+  width: 280px;
+  border-color: #872075;
+  box-shadow: 0 0 0 0.25rem rgba(135, 32, 117, 0.25);
+}
+
+.search-container button {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.search-container button:hover {
+  background-color: var(--primary-color-over);
+  border-color: var(--primary-color-over);
+}
+
+/* Footer styles */
 
 footer {
   height: 50px;
@@ -51,8 +85,12 @@ footer {
   align-items: center;
 }
 
-.cont-1200 {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+@media (max-width: 600px) {
+  .search-container {
+    flex-direction: column;
+  }
+
+  .search-container input {
+    width: 100%;
+  }
 }
