@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-color: #872075;
+  --secondary-color: #f7f4fb;
+  --text-color-dark: #36333c;
+  --text-color-ligth: #ffffff;
+  --background-color: #ecf0f1;
+  --background-color-dark: #e5e5e5;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Open Sans", sans-serif, "Helvetica Neue";
+}
+
+header {
+  align-items: center;
+  background-color: #872075;
+  box-shadow: 0 5px 15px rgb(0 0 0 / 25%);
+  color: var(--background-color);
+  display: flex;
+  height: 80px;
+  padding: 20px 10px;
+  text-align: center;
+}
+
+header .title {
+  font-size: 26px;
+  transition: transform 0.25s ease-in-out;
+}
+
+section.principal {
+  background-color: var(--background-color);
+  padding: 20px;
+  min-height: calc(100vh - 130px);
+}
+
+header .title:hover {
+  transform: scale(1.05);
+}
+
+footer {
+  height: 50px;
+  background-color: var(--background-color-dark);
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.cont-1200 {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}

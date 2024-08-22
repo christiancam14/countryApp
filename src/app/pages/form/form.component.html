@@ -1,0 +1,22 @@
+<section class="principal">
+  <div class="cont-1200">
+    <div style="text-align: center">
+      <h2>Country Information</h2>
+      <input [(ngModel)]="country" placeholder="Enter country name" />
+      <button (click)="handleSubmit()">Search</button>
+
+      <div *ngIf="countryInfo">
+        <h2>{{ countryInfo.name.common }} ({{ countryInfo.name.official }})</h2>
+        <p>
+          <strong>Currency:</strong>
+        </p>
+        <p><strong>Region:</strong> {{ countryInfo.region }}</p>
+        <p><strong>Capital:</strong> {{ countryInfo.capital[0] }}</p>
+        <p><strong>Area:</strong> {{ countryInfo.area | number }} km²</p>
+        <a [href]="countryInfo.maps.googleMaps" target="_blank"
+          >View on Google Maps</a
+        >
+      </div>
+    </div>
+  </div>
+</section>
