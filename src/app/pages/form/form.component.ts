@@ -17,6 +17,7 @@ export class FormComponent {
     this.countryService.getCountryInfo(this.country).subscribe(
       (data) => {
         this.countryInfo = data; // Asignar directamente el objeto Country
+        console.log(data);
       },
       (error) => {
         this.countryInfo = null;
